@@ -1,3 +1,5 @@
-name = "IFCProplang"
+name = "ifc-proplang-rocq"
 language = "Rocq"
 description = "Information Flow Control workload using the PropLang runner framework (Rocq/Coq)."
+
+mutations = []
