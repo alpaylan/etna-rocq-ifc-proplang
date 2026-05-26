@@ -82,3 +82,283 @@ mutations = [
   "OpMov_1",
   "OpMov_2",
 ]
+
+[[tasks]]
+mutations = ["OpLab_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMLab_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMLab_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPcLab_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBCall_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBCall_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBCall_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBCall_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBCall_5"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBCall_6"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_5"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_6"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_7"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_8"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_9"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_10"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBRet_11"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPutLab_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpNop_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPut_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBinOp_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBinOp_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBinOp_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBinOp_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpJump_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpJump_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpJump_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBNZ_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBNZ_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpBNZ_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpLoad_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpLoad_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpLoad_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpLoad_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpStore_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpStore_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpStore_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpStore_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpStore_5"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_5"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_6"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_7"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_8"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_9"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_10"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpWrite_11"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpAlloc_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpAlloc_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpAlloc_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpAlloc_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPSetOff_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPSetOff_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPSetOff_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPSetOff_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPGetOff_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpPGetOff_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMSize_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMSize_2"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMSize_3"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMSize_4"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMov_1"]
+tasks = [{ property = "test_propLLNI" }]
+
+[[tasks]]
+mutations = ["OpMov_2"]
+tasks = [{ property = "test_propLLNI" }]
