@@ -37,6 +37,28 @@ Definition propLLNI :=
   Check ((option (bool * nat)) · _) (fun '(result, _) => 
     fst (unwrap_or result (false, 0))
   ))))))).
-
+(*! seed_pool_choice *)
 Definition test_propLLNI := fuzzLoop number_of_trials propLLNI (HeapSeedPool.(mkPool) tt) HillClimbingUtility.
+(*!! fifo_seed_pool_choice *)
+(*!
+Definition test_propLLNI := fuzzLoop number_of_trials propLLNI (FIFOSeedPool.(mkPool) tt) HillClimbingUtility.
+*)
+(*!! filo_seed_pool_choice *)
+(*!
+Definition test_propLLNI := fuzzLoop number_of_trials propLLNI (FILOSeedPool.(mkPool) tt) HillClimbingUtility.
+*)
+(*!! static_singleton_seed_pool_choice *)
+(*!
+Definition test_propLLNI := fuzzLoop number_of_trials propLLNI (StaticSingletonPool.(mkPool) tt) HillClimbingUtility.
+*)
+(*!! dynamic_resetting_seed_pool_choice *)
+(*!
+Definition test_propLLNI := fuzzLoop number_of_trials propLLNI (DynamicResettingSingletonPool.(mkPool) tt) HillClimbingUtility.
+*)
+(*!! dynamic_monotonic_seed_pool_choice *)
+(*!
+Definition test_propLLNI := fuzzLoop number_of_trials propLLNI (DynamicMonotonicSingletonPool.(mkPool) tt) HillClimbingUtility.
+*)
+(* !*)
+
 (*! QuickProp test_propLLNI.  *)

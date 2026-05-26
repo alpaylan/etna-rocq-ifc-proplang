@@ -19,6 +19,8 @@ Import LabelEqType.
 
 Local Open Scope string.
 
+Definition line_sep := " | ".
+
 Axiom show_pos : positive -> string.
 #[global] Instance showPos : Show positive :=
 {|
@@ -125,7 +127,7 @@ Fixpoint numed_contents {A : Type} (s : A -> string) (l : list A) (n : nat)
 : string :=
   match l with
     | nil => ""%string
-    | cons h t => show n ++ " : " ++ s h ++ nl ++ (numed_contents s t (S n))
+    | cons h t => show n ++ " : " ++ s h ++ line_sep ++ (numed_contents s t (S n))
   end.
 
 Definition par (s : string) := "( " ++ s ++ " )".
@@ -152,7 +154,7 @@ Definition par (s : string) := "( " ++ s ++ " )".
 {|
   show f :=
     let '(Fr lab data) := f in
-    "Label: " ++ show lab ++ nl ++
+    "Label: " ++ show lab ++ line_sep ++
     show data
 |}.
 
@@ -232,20 +234,20 @@ Fixpoint show_mem_pair_helper (frame_pairs : list (mframe * mframe))
         | Some (Fr l1 data1), Some (Fr l2 data2) =>
           (if eqtype.eq_op l1 l2 then
             "DFR @ " ++ show l1 ++ " : [ "
-                     ++ show_pair_list 0 lab data1 data2 ++ nl
+                     ++ show_pair_list 0 lab data1 data2 ++ line_sep
                      ++ show_mem_pair_helper t lab m1 m2 ++ " ]"
           else
             "DFR @ " ++ (show_variation (show l1) (show l2)) ++ " : [ "
-                     ++ (show_pair_list 0 lab data1 data2) ++ nl
+                     ++ (show_pair_list 0 lab data1 data2) ++ line_sep
                      ++ show_mem_pair_helper t lab m1 m2) ++ " ]"
         | Some (Fr l1 data1), None =>
-          "Frame " ++ show f1 ++ " corresponds to " ++ nl
+          "Frame " ++ show f1 ++ " corresponds to " ++ line_sep
                    ++ show l1 ++ " : [ "
-                   ++ show data1 ++ nl
+                   ++ show data1 ++ line_sep
         | None, Some (Fr l2 data2) =>
-          "Frame " ++ show f2 ++ " corresponds to " ++ nl
+          "Frame " ++ show f2 ++ " corresponds to " ++ line_sep
                    ++ show l2 ++ " : [ "
-                   ++ show data2 ++ nl
+                   ++ show data2 ++ line_sep
         | _, _ => "Bad frames: " ++ show f1 ++ " vs "++ show f2
       end)
   end.
@@ -256,7 +258,7 @@ Definition show_high_frames m (mfs : list mframe) :=
         | [::] => ""
         | h :: t =>
           match get_memframe m h with
-            | Some f => par (show h) ++ " : " ++ show f ++ nl ++ aux t
+            | Some f => par (show h) ++ " : " ++ show f ++ line_sep ++ aux t
             | _ => "ERROR SHOWING EXTRA FRAMES"
           end
       end in
@@ -273,12 +275,12 @@ Definition show_pair_mem (obs : Label) (m1 m2 : memory)
   let frames2 := get_blocks all_labels m2 in
   let high2 := filter (fun mf => isHigh (Memory.stamp mf) obs) frames2 in
   let low2  := filter (fun mf => isLow  (Memory.stamp mf) obs) frames2 in
-  "DEBUG: " ++ nl ++
-  "fst: " ++ show frames1 ++ nl ++
-  "snd: " ++ show frames2 ++ nl ++
-  show_mem_pair_helper (zip frames1 frames2) obs m1 m2 ++ nl ++
-  show_high_frames m1 high1 ++ nl ++
-  show_high_frames m2 high2 ++ nl.
+  "DEBUG: " ++ line_sep ++
+  "fst: " ++ show frames1 ++ line_sep ++
+  "snd: " ++ show frames2 ++ line_sep ++
+  show_mem_pair_helper (zip frames1 frames2) obs m1 m2 ++ line_sep ++
+  show_high_frames m1 high1 ++ line_sep ++
+  show_high_frames m2 high2 ++ line_sep.
 
 (* Keep top separates the high prefix of the stack
    INV : Assumes well formed! (fix?) CH: yes!
@@ -296,10 +298,10 @@ Fixpoint show_stack s :=
   match s with
     | nil => ""
     | (SF pc rs r l) :: s' =>
-      "RetPC: " ++ show pc ++ nl ++
-      "RetLAB: " ++ show l ++ nl ++
-      "RetRegs: " ++ show rs ++ nl ++
-      "RetReg : " ++ show r ++ nl ++
+      "RetPC: " ++ show pc ++ line_sep ++
+      "RetLAB: " ++ show l ++ line_sep ++
+      "RetRegs: " ++ show rs ++ line_sep ++
+      "RetReg : " ++ show r ++ line_sep ++
       show_stack s'
   end.
 
@@ -344,30 +346,30 @@ Fixpoint show_low_stack_pair lab s1 s2 :=
   show_pair lab st1 st2 :=
     let '(St im1 m1 s1 r1 pc1) := st1 in
     let '(St im2 m2 s2 r2 pc2) := st2 in
-    "Instructions: " ++ show im1 ++ nl ++
-    "PC: "  ++ show_pair lab pc1 pc2 ++ nl ++
-    "Mem: " ++ nl ++
-       show_pair_mem lab m1 m2 ++ nl ++
-    "Regs: " ++ nl ++
-       show_pair_list 0 lab r1 r2 ++ nl ++
-    "Stack1: " ++ nl ++
+    "Instructions: " ++ show im1 ++ line_sep ++
+    "PC: "  ++ show_pair lab pc1 pc2 ++ line_sep ++
+    "Mem: " ++ line_sep ++
+       show_pair_mem lab m1 m2 ++ line_sep ++
+    "Regs: " ++ line_sep ++
+       show_pair_list 0 lab r1 r2 ++ line_sep ++
+    "Stack1: " ++ line_sep ++
        show_stack (unStack s1) ++
-    "Stack2: " ++ nl ++
+    "Stack2: " ++ line_sep ++
        show_stack (unStack s1)
 |}.
 
 #[global] Instance show_variation_instance : Show Variation :=
 {|
   show v := let '(Var lab st1 st2) := v in
-            "Obs level:" ++ show lab ++ nl ++ show_pair lab st1 st2
+            "Obs level:" ++ show lab ++ line_sep ++ show_pair lab st1 st2
 |}.
 
 Fixpoint show_execution (lab : Label)
          (sts1 sts2 : list SState) :=
   match sts1, sts2 with
     | h1::t1, h2::t2 =>
-      "-=Step=-" ++ nl ++
-      show_pair lab h1 h2 ++ nl ++
+      "-=Step=-" ++ line_sep ++
+      show_pair lab h1 h2 ++ line_sep ++
       show_execution lab t1 t2
     | [::], [::] => ""
     | [::], _ => "Mach 2 continues: FIXME"
