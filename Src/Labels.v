@@ -170,7 +170,7 @@ apply/(iffP idP).
   by rewrite !flows_refl.
 Qed.
 
-Definition label_eqMixin := EqMixin label_eqP.
+Definition label_eqMixin := Equality.Mixin label_eqP.
 
 #[global] Hint Resolve
   @join_1
@@ -197,7 +197,7 @@ Proof. intros l; destruct l; auto. Defined.
 
 Module Import LabelEqType.
 
-Canonical label_eqType := Eval hnf in EqType _ label_eqMixin.
+Canonical label_eqType := Eval hnf in Equality.Pack (Equality.Class label_eqMixin).
 
 End LabelEqType.
 
@@ -211,6 +211,6 @@ Proof. by case. Defined.
 
 
 From QuickChick Require Import QuickChick.
-Derive Show for Label.
-Derive Arbitrary for Label.
+Derive Instance Show for Label.
+Derive Instance Arbitrary for Label.
 (* Derive Fuzzy for Label.*)

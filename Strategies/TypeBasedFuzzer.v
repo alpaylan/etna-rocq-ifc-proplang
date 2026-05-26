@@ -10,22 +10,22 @@ From mathcomp Require Import ssreflect eqtype seq.
 Import LabelEqType.
 
 
-From PropLang Require Import PropLang.
+From PropLang Require Import PropLang SeedPool Heap FuzzLoop.
 Local Open Scope prop_scope.
 
 #[local] Instance FuzzyZ : Fuzzy Z :=
   {| fuzz n := choose (n - 5, n + 5)%Z |}.
 
-Derive (Arbitrary, Fuzzy) for BinOpT.
-Derive (Arbitrary, Fuzzy) for Instr.
-Derive (Arbitrary, Fuzzy) for Pointer.
-Derive (Arbitrary, Fuzzy) for Value.
-Derive (Arbitrary, Fuzzy) for Atom.
-Derive (Arbitrary, Fuzzy) for Ptr_atom.
-Derive (Arbitrary, Fuzzy) for StackFrame.
-Derive (Arbitrary, Fuzzy) for Stack.
-Derive (Arbitrary, Fuzzy) for SState.
-Derive (Arbitrary, Fuzzy) for Variation.
+Derive Instance (Arbitrary, Fuzzy) for BinOpT.
+Derive Instance (Arbitrary, Fuzzy) for Instr.
+Derive Instance (Arbitrary, Fuzzy) for Pointer.
+Derive Instance (Arbitrary, Fuzzy) for Value.
+Derive Instance (Arbitrary, Fuzzy) for Atom.
+Derive Instance (Arbitrary, Fuzzy) for Ptr_atom.
+Derive Instance (Arbitrary, Fuzzy) for StackFrame.
+Derive Instance (Arbitrary, Fuzzy) for Stack.
+Derive Instance (Arbitrary, Fuzzy) for SState.
+Derive Instance (Arbitrary, Fuzzy) for Variation.
 
 Definition propLLNI :=
   ForAll "v" (fun _ => arbitrary) (fun _ => fuzz) (fun _ => shrink) (fun _ => show) (

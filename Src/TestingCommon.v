@@ -1,6 +1,6 @@
 Require Import ZArith.
 Require Import Coq.Strings.String.
-Require Import NPeano.
+From Stdlib Require Import PeanoNat.
 
 From QuickChick Require Import QuickChick.
 

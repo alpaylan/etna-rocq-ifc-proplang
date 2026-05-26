@@ -23,6 +23,12 @@ Require Export List.
 Require Export Bool.
 Require Export Lia.
 
+Lemma Z_div_mod_eq:
+  forall a b, b > 0 -> a = b * (a / b) + a mod b.
+Proof.
+  intros. apply Z.div_mod. lia.
+Qed.
+
 (** * Useful tactics *)
 
 Ltac inv H := inversion H; clear H; subst.
@@ -1393,4 +1399,3 @@ Proof.
 Qed.
 
 End LEX_ORDER.
-

@@ -13,16 +13,16 @@ Import LabelEqType.
 From PropLang Require Import PropLang.
 Local Open Scope prop_scope.
 
-Derive Arbitrary for BinOpT.
-Derive Arbitrary for Instr.
-Derive Arbitrary for Pointer.
-Derive Arbitrary for Value.
-Derive Arbitrary for Atom.
-Derive Arbitrary for Ptr_atom.
-Derive Arbitrary for StackFrame.
-Derive Arbitrary for Stack.
-Derive Arbitrary for SState.
-Derive Arbitrary for Variation.
+Derive Instance Arbitrary for BinOpT.
+Derive Instance Arbitrary for Instr.
+Derive Instance Arbitrary for Pointer.
+Derive Instance Arbitrary for Value.
+Derive Instance Arbitrary for Atom.
+Derive Instance Arbitrary for Ptr_atom.
+Derive Instance Arbitrary for StackFrame.
+Derive Instance Arbitrary for Stack.
+Derive Instance Arbitrary for SState.
+Derive Instance Arbitrary for Variation.
 
 Definition propLLNI :=
   ForAll "v" (fun _ => arbitrary) (fun _ _ => arbitrary) (fun _ => shrink) (fun _ => show) (

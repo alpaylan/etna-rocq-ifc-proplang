@@ -53,6 +53,7 @@ Definition default_table : table := fun op =>
 | OpLab => ≪ TRUE , BOT , LabPC ≫
 (*!! OpLab_1 *)
 (*! | OpLab => ≪ TRUE , BOT , BOT ≫ *)
+(*! *)
 
 (* ---"OpMLab"--- *)
 
@@ -62,6 +63,7 @@ Definition default_table : table := fun op =>
 (*! | OpMLab => ≪ TRUE , BOT , LabPC ≫ *)
 (*!! OpMLab_2 *)
 (*! | OpMLab => ≪ TRUE , Lab1 , BOT ≫ *)
+(*! *)
 
 (* ---"OpPcLab"--- *)
 
@@ -69,6 +71,7 @@ Definition default_table : table := fun op =>
 | OpPcLab => ≪ TRUE , BOT , LabPC ≫
 (*!! OpPcLab_1 *)
 (*! | OpPcLab => ≪ TRUE , BOT , BOT ≫ *)
+(*! *)
 
 (* ---"OpBCall"--- *)
 
@@ -86,6 +89,7 @@ Definition default_table : table := fun op =>
 (*! | OpBCall => ≪ TRUE , JOIN (Lab2) (LabPC) , Lab1 ≫ *)
 (*!! OpBCall_6 *)
 (*! | OpBCall => ≪ TRUE , JOIN (Lab2) (LabPC) , LabPC ≫ *)
+(*! *)
 
 (* ---"OpBRet"--- *)
 
@@ -113,6 +117,7 @@ Definition default_table : table := fun op =>
 (*! | OpBRet => ≪ LE (JOIN (Lab1) (LabPC)) (JOIN (Lab2) (Lab3)) , BOT , Lab3 ≫ *)
 (*!! OpBRet_11 *)
 (*! | OpBRet => ≪ LE (JOIN (Lab1) (LabPC)) (JOIN (Lab2) (Lab3)) , Lab2 , BOT ≫ *)
+(*! *)
 
 (* ---"OpPutLab"--- *)
 
@@ -120,6 +125,7 @@ Definition default_table : table := fun op =>
 | OpPutLab => ≪ TRUE , BOT , LabPC ≫
 (*!! OpPutLab_1 *)
 (*! | OpPutLab => ≪ TRUE , BOT , BOT ≫ *)
+(*! *)
 
 (* ---"OpNop"--- *)
 
@@ -127,6 +133,7 @@ Definition default_table : table := fun op =>
 | OpNop => ≪ TRUE , __ , LabPC ≫
 (*!! OpNop_1 *)
 (*! | OpNop => ≪ TRUE , __ , BOT ≫ *)
+(*! *)
 
 (* ---"OpPut"--- *)
 
@@ -134,6 +141,7 @@ Definition default_table : table := fun op =>
 | OpPut => ≪ TRUE , BOT , LabPC ≫
 (*!! OpPut_1 *)
 (*! | OpPut => ≪ TRUE , BOT , BOT ≫ *)
+(*! *)
 
 (* ---"OpBinOp"--- *)
 
@@ -147,6 +155,7 @@ Definition default_table : table := fun op =>
 (*! | OpBinOp => ≪ TRUE , Lab2 , LabPC ≫ *)
 (*!! OpBinOp_4 *)
 (*! | OpBinOp => ≪ TRUE , JOIN (Lab1) (Lab2) , BOT ≫ *)
+(*! *)
 
 (* ---"OpJump"--- *)
 
@@ -158,6 +167,7 @@ Definition default_table : table := fun op =>
 (*! | OpJump => ≪ TRUE , __ , LabPC ≫ *)
 (*!! OpJump_3 *)
 (*! | OpJump => ≪ TRUE , __ , Lab1 ≫ *)
+(*! *)
 
 (* ---"OpBNZ"--- *)
 
@@ -169,6 +179,7 @@ Definition default_table : table := fun op =>
 (*! | OpBNZ => ≪ TRUE , __ , Lab1 ≫ *)
 (*!! OpBNZ_3 *)
 (*! | OpBNZ => ≪ TRUE , __ , LabPC ≫ *)
+(*! *)
 
 (* ---"OpLoad"--- *)
 
@@ -182,6 +193,7 @@ Definition default_table : table := fun op =>
 (*! | OpLoad => ≪ TRUE , Lab3 , LabPC ≫ *)
 (*!! OpLoad_4 *)
 (*! | OpLoad => ≪ TRUE , Lab3 , JOIN (Lab1) (Lab2) ≫ *)
+(*! *)
 
 (* ---"OpStore"--- *)
 
@@ -197,6 +209,7 @@ Definition default_table : table := fun op =>
 (*! | OpStore => ≪ LE (JOIN (Lab1) (LabPC)) (Lab2) , BOT , LabPC ≫ *)
 (*!! OpStore_5 *)
 (*! | OpStore => ≪ LE (JOIN (Lab1) (LabPC)) (Lab2) , Lab3 , BOT ≫ *)
+(*! *)
 
 (* ---"OpWrite"--- *)
 
@@ -224,6 +237,7 @@ Definition default_table : table := fun op =>
 (*! | OpWrite => ≪ LE (JOIN (JOIN (LabPC) (Lab1)) (Lab3)) (JOIN (Lab2) (Lab4)) , BOT , LabPC ≫ *)
 (*!! OpWrite_11 *)
 (*! | OpWrite => ≪ LE (JOIN (JOIN (LabPC) (Lab1)) (Lab3)) (JOIN (Lab2) (Lab4)) , Lab4 , BOT ≫ *)
+(*! *)
 
 (* ---"OpAlloc"--- *)
 
@@ -237,6 +251,7 @@ Definition default_table : table := fun op =>
 (*! | OpAlloc => ≪ TRUE , Lab2 , LabPC ≫ *)
 (*!! OpAlloc_4 *)
 (*! | OpAlloc => ≪ TRUE , JOIN (Lab1) (Lab2) , BOT ≫ *)
+(*! *)
 
 (* ---"OpPSetOff"--- *)
 
@@ -250,6 +265,7 @@ Definition default_table : table := fun op =>
 (*! | OpPSetOff => ≪ TRUE , Lab2 , LabPC ≫ *)
 (*!! OpPSetOff_4 *)
 (*! | OpPSetOff => ≪ TRUE , JOIN (Lab1) (Lab2) , BOT ≫ *)
+(*! *)
 
 (* ---"OpPGetOff"--- *)
 
@@ -259,6 +275,7 @@ Definition default_table : table := fun op =>
 (*! | OpPGetOff => ≪ TRUE , BOT , LabPC ≫ *)
 (*!! OpPGetOff_2 *)
 (*! | OpPGetOff => ≪ TRUE , Lab1 , BOT ≫ *)
+(*! *)
 
 (* ---"OpMSize"--- *)
 
@@ -272,6 +289,7 @@ Definition default_table : table := fun op =>
 (*! | OpMSize => ≪ TRUE , Lab2 , LabPC ≫ *)
 (*!! OpMSize_4 *)
 (*! | OpMSize => ≪ TRUE , Lab2 , Lab1 ≫ *)
+(*! *)
 
 (* ---"OpMov"--- *)
 
@@ -281,6 +299,7 @@ Definition default_table : table := fun op =>
 (*! | OpMov => ≪ TRUE , BOT , LabPC ≫ *)
 (*!! OpMov_2 *)
 (*! | OpMov => ≪ TRUE , Lab1 , BOT ≫ *)
+(*! *)
 end.
 
 (* Short for a label l to be low/high compared to an observability label obs *)
@@ -322,8 +341,8 @@ case: v1 => v1; case: v2 => v2 //=.
   by apply/andP; split=> //.
 Qed.
 
-Definition val_eqMixin := EqMixin val_eqP.
-Canonical val_eqType := EqType _ val_eqMixin.
+Definition val_eqMixin := Equality.Mixin val_eqP.
+Canonical val_eqType := Equality.Pack (Equality.Class val_eqMixin).
 
 Inductive Atom : Type :=
  | Atm (v:Value) (l:Label).
@@ -341,8 +360,8 @@ move=> [xv xl] [yv yl] /=.
 by apply/(iffP andP)=> [[/eqP -> /eqP ->]|[-> ->]].
 Qed.
 
-Canonical Atom_eqMixin := EqMixin eqAtomP.
-Canonical Atom_eqType := Eval hnf in EqType Atom Atom_eqMixin.
+Canonical Atom_eqMixin := Equality.Mixin eqAtomP.
+Canonical Atom_eqType := Eval hnf in Equality.Pack (Equality.Class Atom_eqMixin).
 
 Inductive Ptr_atom : Type :=
  | PAtm (i:Z) (l:Label).
@@ -450,7 +469,7 @@ Definition memory := mem Atom.
 Definition frame := memframe Atom.
 
 Canonical frame_eqType :=
-  Eval hnf in EqType frame (memframe_eqMixin [eqType of Atom]). 
+  Eval hnf in Equality.Pack (Equality.Class (memframe_eqMixin Atom_eqType)).
 
 Definition alloc (size:Z) (lab stamp:Label) (a:Atom) (m:memory)
 : option (mframe * memory) :=
@@ -1129,6 +1148,5 @@ apply/(iffP idP)=> [/andP [] /eqP -> /eqP ->|[-> ->]] //.
 by rewrite !eqxx.
 Qed.
 
-Definition pc_eqMixin := EqMixin pc_eqP.
-Canonical pc_eqType := EqType _ pc_eqMixin.
-
+Definition pc_eqMixin := Equality.Mixin pc_eqP.
+Canonical pc_eqType := Equality.Pack (Equality.Class pc_eqMixin).

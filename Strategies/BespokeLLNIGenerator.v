@@ -711,15 +711,15 @@ Definition gen_variation_SState : G (@Variation SState) :=
 
 (* Arbitrary version *)
 
-Derive (GenSized, Show) for Instr.
-Derive (GenSized, Show) for Pointer.
-Derive (GenSized, Show) for Value.
-Derive (GenSized, Show) for Atom.
-Derive (GenSized, Show) for Ptr_atom.
-Derive (GenSized, Show) for StackFrame.
-Derive (GenSized, Show) for Stack.
-Derive (GenSized, Show) for SState.
-Derive GenSized for Variation.
+Derive Instance (GenSized, Show) for Instr.
+Derive Instance (GenSized, Show) for Pointer.
+Derive Instance (GenSized, Show) for Value.
+Derive Instance (GenSized, Show) for Atom.
+Derive Instance (GenSized, Show) for Ptr_atom.
+Derive Instance (GenSized, Show) for StackFrame.
+Derive Instance (GenSized, Show) for Stack.
+Derive Instance (GenSized, Show) for SState.
+Derive Instance GenSized for Variation.
 
 
 (* Definition test_propSSNI_smart :=

@@ -1,6 +1,6 @@
 From QuickChick Require Import QuickChick.
 
-From PropLang Require Import PropLang.
+From PropLang Require Import PropLang SeedPool Heap TargetLoop.
 Local Open Scope prop_scope.
 
 Require Import TestingCommon.
@@ -25,15 +25,15 @@ Import LabelEqType.
   {| fuzz n := choose (n - 5, n + 5)%Z |}.
 
 
-  Derive (GenSized, Fuzzy) for BinOpT.
-Derive (GenSized, Fuzzy) for Instr.
-Derive (GenSized, Fuzzy) for Pointer.
-Derive (GenSized, Fuzzy) for Value.
-Derive (GenSized, Fuzzy) for Atom.
-Derive (GenSized, Fuzzy) for Ptr_atom.
-Derive (GenSized, Fuzzy) for StackFrame.
-Derive (GenSized, Fuzzy) for Stack.
-Derive (GenSized, Fuzzy) for SState.
+Derive Instance (GenSized, Fuzzy) for BinOpT.
+Derive Instance (GenSized, Fuzzy) for Instr.
+Derive Instance (GenSized, Fuzzy) for Pointer.
+Derive Instance (GenSized, Fuzzy) for Value.
+Derive Instance (GenSized, Fuzzy) for Atom.
+Derive Instance (GenSized, Fuzzy) for Ptr_atom.
+Derive Instance (GenSized, Fuzzy) for StackFrame.
+Derive Instance (GenSized, Fuzzy) for Stack.
+Derive Instance (GenSized, Fuzzy) for SState.
 
 
 Axiom num_tests : nat. 

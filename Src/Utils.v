@@ -1201,8 +1201,8 @@ Proof.
 by move=> x y; apply: (iffP idP); case: Z.eqb_spec.
 Qed.
 
-Definition Z_eqMixin := EqMixin Z_eqbP.
-Canonical Z_eqType := Eval hnf in EqType _ Z_eqMixin.
+Definition Z_eqMixin := Equality.Mixin Z_eqbP.
+Canonical Z_eqType := Eval hnf in Equality.Pack (Equality.Class Z_eqMixin).
 
 Definition zreplicate {A:Type} (n:Z) (a:A) : option (seq A) :=
   if Z_lt_dec n 0 then None

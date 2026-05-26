@@ -20,12 +20,12 @@ Unset Printing Implicit Defensive.
 (* I'm ending the craziness. Label model is now fixed to be Lab4. *)
 Inductive memframe A := Fr (lab : Label) : list A -> memframe A.
 
-Derive Fuzzy for prod.
-Derive Fuzzy for list.
+Derive Instance Fuzzy for prod.
+Derive Instance Fuzzy for list.
 
 
-Derive Fuzzy for Label.
-Derive Fuzzy for memframe.
+Derive Instance Fuzzy for Label.
+Derive Instance Fuzzy for memframe.
 
 (* #[local] Instance Fuzzy_memframe {A} `{GenSized A} `{Fuzzy A}: Fuzzy (memframe A) :=
   {| fuzz n := 
@@ -35,8 +35,8 @@ Derive Fuzzy for memframe.
   |}.
  *)
 
-Derive Arbitrary for memframe.
-Derive Show for memframe. 
+Derive Instance Arbitrary for memframe.
+Derive Instance Show for memframe.
 
 Section FrameEqType.
 
@@ -54,9 +54,10 @@ move=> [l1 xs1] [l2 xs2]; apply/(iffP andP).
 by move => [-> ->]; rewrite !eqxx.
 Qed.
 
-Definition memframe_eqMixin := EqMixin memframe_eqP.
+Definition memframe_eqMixin := Equality.Mixin memframe_eqP.
 
-Canonical memframe_eqType := Eval hnf in EqType (memframe A) memframe_eqMixin.
+Canonical memframe_eqType :=
+  Eval hnf in Equality.Pack (Equality.Class memframe_eqMixin).
 
 End FrameEqType.
 
@@ -80,8 +81,8 @@ Definition block_eq (b1 b2 : block) := b1 == b2.
 Lemma block_eqP : Equality.axiom block_eq.
 Proof. unfold Equality.axiom. intros. exact /eqP. Defined.
 
-Definition block_eqMixin := EqMixin block_eqP.
-Canonical block_eqType := EqType block block_eqMixin.
+Definition block_eqMixin := Equality.Mixin block_eqP.
+Canonical block_eqType := Equality.Pack (Equality.Class block_eqMixin).
 
 Definition stamp : block -> Label := @snd _ _.
 Definition put_stamp (s : Label) (b : block) : block :=
@@ -521,7 +522,7 @@ Proof.
       generalize dependent start. generalize dependent z'.
       induction len as [| l IHl]; intros s start Hle1 Hle3.
       + lia.
-      + simpl in *. apply le_lt_or_eq in Hle1. destruct Hle1 as [H1 | H2].
+      + simpl in *. apply Nat.lt_eq_cases in Hle1. destruct Hle1 as [H1 | H2].
         rewrite inE; apply/orP; right. apply IHl; try lia.
         rewrite inE; apply/orP; left; apply/eqP; congruence.
     - intros HIn. unfold Z_seq in HIn.

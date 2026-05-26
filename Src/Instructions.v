@@ -8,7 +8,7 @@ Require Import Utils.
 Definition regId := Z.
 
 Canonical regId_eqType :=
-  Eval hnf in EqType regId [eqMixin of Z].
+  Eval hnf in Z_eqType.
 
 Inductive BinOpT : Type :=
 | BAdd
@@ -101,9 +101,9 @@ Proof. decide equality. Defined.
 Lemma opCode_eq_decP : Equality.axiom opCode_eq_dec.
 Proof. by move=> o1 o2; apply: sumboolP. Qed.
 
-Definition opCode_eqMixin := EqMixin opCode_eq_decP.
+Definition opCode_eqMixin := Equality.Mixin opCode_eq_decP.
 
-Canonical opCode_eqType := Eval hnf in EqType OpCode opCode_eqMixin.
+Canonical opCode_eqType := Eval hnf in Equality.Pack (Equality.Class opCode_eqMixin).
 
 Lemma opCodes_correct : forall o : OpCode, o \in opCodes.
 Proof. by case. Qed.
@@ -143,8 +143,8 @@ apply/(iffP idP); first exact: internal_BinOpT_dec_bl.
 exact: internal_BinOpT_dec_lb.
 Qed.
 
-Definition BinOpT_eqMixin := EqMixin BinOpT_beqP.
-Canonical BinOpT_eqType := Eval hnf in EqType _ BinOpT_eqMixin.
+Definition BinOpT_eqMixin := Equality.Mixin BinOpT_beqP.
+Canonical BinOpT_eqType := Eval hnf in Equality.Pack (Equality.Class BinOpT_eqMixin).
 
 Definition instr_eqb (T : eqType) (i1 i2 : @Instr T) : bool :=
   match i1, i2 with
@@ -211,5 +211,6 @@ apply/(iffP idP); case: i1; case: i2 => //=.
 + by move=> ? ? ? ? [-> ->]; rewrite !eqxx.
 Qed.
 
-Definition instr_eqMixin T := EqMixin (instr_eqbP T).
-Canonical instr_eqType T := Eval hnf in EqType _ (instr_eqMixin T).
+Definition instr_eqMixin T := Equality.Mixin (instr_eqbP T).
+Canonical instr_eqType T :=
+  Eval hnf in Equality.Pack (Equality.Class (instr_eqMixin T)).

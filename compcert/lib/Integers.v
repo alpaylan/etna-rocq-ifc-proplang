@@ -4210,8 +4210,8 @@ Proof.
   by rewrite Word.eq_true.
 Qed.
 
-Definition int_eqMixin n := EqMixin (int_eqP n).
-Canonical int_eqType n := Eval hnf in EqType (Word.int n) (int_eqMixin n).
+Definition int_eqMixin n := Equality.Mixin (int_eqP n).
+Canonical int_eqType n := Eval hnf in Equality.Pack (Equality.Class (int_eqMixin n)).
 
 Lemma int_to_ord_proof n (w : Word.int n) : (Z.to_nat (Word.unsigned w) < 2 ^ n.+1)%N.
 Proof.
@@ -4251,11 +4251,19 @@ Proof.
   lia.
 Qed.
 
-Definition int_choiceMixin n := CanChoiceMixin (int_to_ordK n).
-Canonical int_choiceType n := Eval hnf in ChoiceType _ (int_choiceMixin n).
+Definition int_choiceMixin n := CanHasChoice (int_to_ordK n).
+Canonical int_choiceType n :=
+  Eval hnf in Choice.Pack (Choice.Class (int_choiceMixin n) (int_eqMixin n)).
 
-Definition int_countMixin n := CanCountMixin (int_to_ordK n).
-Canonical int_countType n := Eval hnf in CountType _ (int_countMixin n).
+Definition int_countMixin n :=
+  let c := CanIsCountable (int_to_ordK n) in
+  Choice_isCountable.Axioms_
+    (isCountable.pickle c) (isCountable.unpickle c) (isCountable.pickleK c).
+Canonical int_countType n :=
+  Eval hnf in Countable.Pack
+    (Countable.Class (int_choiceMixin n) (int_eqMixin n) (int_countMixin n)).
 
-Definition int_finMixin n := CanFinMixin (int_to_ordK n).
-Canonical int_finType n := Eval hnf in FinType _  (int_finMixin n).
+Definition int_finMixin n := CanIsFinite (int_to_ordK n).
+Canonical int_finType n :=
+  Eval hnf in Finite.Pack
+    (Finite.Class (int_choiceMixin n) (int_countMixin n) (int_finMixin n)).

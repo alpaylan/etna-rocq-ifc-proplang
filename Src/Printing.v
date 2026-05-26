@@ -1,7 +1,7 @@
 Require Import Coq.Strings.String.
 Require Import MSetPositive.
 Require Import ZArith.
-Require Import Coq.Numbers.Natural.Peano.NPeano.
+From Stdlib Require Import PeanoNat.
 
 From QuickChick Require Import QuickChick.
 
