@@ -10,7 +10,7 @@ From mathcomp Require Import ssreflect eqtype seq.
 Import LabelEqType.
 
 
-From PropLang Require Import PropLang SeedPool Heap FuzzLoop.
+From PropLang Require Import PropLang SeedPool Heap Queue Singleton FuzzLoop.
 Local Open Scope prop_scope.
 
 #[local] Instance FuzzyZ : Fuzzy Z :=
